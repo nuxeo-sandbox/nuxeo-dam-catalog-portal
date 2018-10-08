@@ -1,0 +1,11 @@
+<component name="org.nuxeo.dam.catalog.auth">
+
+  <extension point="startURL" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
+    <startURLPattern>
+      <patterns>
+        <pattern>catalog/</pattern>
+      </patterns>
+    </startURLPattern>
+  </extension>
+
+</component>

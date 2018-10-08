@@ -1,0 +1,9 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: nuxeo
+Bundle-Version: 1.0.0
+Bundle-Name: nuxeo-dam-catalog-portal
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: nuxeo-dam-catalog-portal;singleton=true
+Nuxeo-Component: OSGI-INF/auth-contrib.xml

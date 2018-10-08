@@ -1,0 +1,8 @@
+// Strips the units from the $number passed in
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function rem($pixels) {
+  @return #{strip-units($pixels) / 16}rem;
+}

@@ -1,0 +1,88 @@
+/* COLORS */
+
+$c-white: #ffffff;
+$c-black: #000000;
+
+/* Gray range */
+
+$c-gray-100: #f6f6f6;
+$c-gray-200: #eeeeee;
+$c-gray-300: #dddddd;
+$c-gray-400: #909294;
+$c-gray-600: #54585a;
+$c-gray-primary: $c-gray-600;
+
+/* Orange range */
+
+$c-orange-400: #f28913;
+$c-orange-500: #ef6d22;
+$c-orange-primary: $c-orange-500;
+
+/* FONT STYLES */
+
+/* Font families */
+
+$ff-texts: 'TradeGothicLT', Arial, Helvetica, sans-serif;
+$ff-icons: 'Material-Design-Iconic-Font';
+
+/* Font weights */
+
+$fw-light: 400;
+$fw-normal: 500;
+$fw-bold: 600;
+
+/* Font sizes */
+
+$fs-body: 16px;
+$fs-body-md: 14px;
+$fs-body-sm: 12px;
+$fs-h1: rem(56px);
+$fs-h2: rem(32px);
+$fs-h3: rem(18px);
+$fs-texts-lg: rem(22px);
+$fs-texts: rem(18px);
+$fs-texts-sm: rem(16px);
+$fs-texts-xs: rem(14px);
+$fs-texts-xxs: rem(12px);
+
+/* Font colors */
+$fc: $c-gray-primary;
+$fc-light: $c-gray-400;
+$fc-xlight: $c-gray-300;
+
+/* DIMENSIONS */
+
+/* Containers widths */
+
+$container-width: 1260px;
+$search-filters-width: rem(300px);
+
+/* Gutters */
+
+$gutter-xxs: rem(5px);
+$gutter-xs: rem(10px);
+$gutter-sm: rem(20px);
+$gutter: rem(40px);
+$gutter-lg: rem(70px);
+$gutter-xl: rem(140px);
+
+/* Containers heights */
+
+$app-footer-height: rem(90px);
+$banner-section-height: rem(436px);
+
+/* TRANSITIONS */
+
+$transition: all .2s ease;
+
+/* BORDERS */
+
+/* Borders radius*/
+
+$br-sm: 2px;
+$br: 4px;
+
+/* Borders colors */
+
+$bc: $c-gray-300;
+

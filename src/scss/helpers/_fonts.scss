@@ -1,0 +1,15 @@
+$font_path: '../fonts';
+
+@font-face {
+  font-family: 'TradeGothicLT';
+  src: url('#{$font-path}/trade_gothic/TradeGothicLT-Bold.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/trade_gothic/TradeGothicLT-Bold.woff') format('woff'), url('#{$font-path}/trade_gothic/TradeGothicLT-Bold.ttf')  format('truetype'), url('#{$font-path}/trade_gothic/TradeGothicLT-Bold.svg#TradeGothicLT-Bold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TradeGothicLT';
+  src: url('#{$font-path}/trade_gothic/TradeGothicLT.eot?#iefix') format('embedded-opentype'),  url('#{$font-path}/trade_gothic/TradeGothicLT.woff') format('woff'), url('#{$font-path}/trade_gothic/TradeGothicLT.ttf')  format('truetype'), url('#{$font-path}/trade_gothic/TradeGothicLT.svg#TradeGothicLT') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="User registration" default="build" basedir=".">
+
+  <!-- set executable names based on OS family -->
+  <condition property="cmd.npm" value="npm.cmd" else="npm">
+    <os family="windows"/>
+  </condition>
+  <condition property="cmd.mvn" value="mvn.cmd" else="mvn">
+    <os family="windows"/>
+  </condition>
+
+  <target name="init" description="Download all node and web dependencies">
+    <exec executable="${cmd.npm}" failonerror="true">
+      <arg value="install" />
+    </exec>
+  </target>
+
+  <target name="build" depends="init">
+    <exec executable="${cmd.npm}" failonerror="true">
+      <arg value="run" />
+      <arg value="build" />
+    </exec>
+  </target>
+
+</project>

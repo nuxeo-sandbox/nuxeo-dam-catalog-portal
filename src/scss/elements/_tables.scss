@@ -1,0 +1,27 @@
+.table {
+  th, td {
+    border: none;
+    vertical-align: middle;
+  }
+
+  thead {
+    th {
+      border: none;
+    }
+  }
+
+  &.table-striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background: rgba($c-orange-primary,.05);
+        }
+      }
+    }
+  }
+
+  &-wrapper {
+    max-width: 100%;
+    overflow: auto;
+  }
+}

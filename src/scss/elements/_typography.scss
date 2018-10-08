@@ -1,0 +1,20 @@
+html {
+  font-size: $fs-body;
+
+  @include breakpoint(mediumscreen) {
+    font-size: $fs-body-md;
+  }
+
+  @include breakpoint(smallscreen) {
+    font-size: $fs-body-sm;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: $fs-body;
+  }
+}
+
+body {
+  font-family: $ff-texts;
+  color: $fc;
+}

@@ -1,0 +1,255 @@
+.product {
+  &-list {
+    margin-bottom: -#{$gutter};
+  }
+
+  &-item {
+    margin-bottom: $gutter;
+
+    &:hover {
+      .product-item-cover {
+        &-actions {
+          opacity: 1;
+
+          @include breakpoint(mobile) {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    &-cover {
+      height: rem(200px);
+      @extend %background-contain;
+
+      &-wrapper {
+        position: relative;
+        margin-bottom: $gutter-sm;
+        border: 1px solid $bc;
+        padding: $gutter-sm;
+        transition: $transition;
+        border-radius: $br;
+        overflow: hidden;
+        transition: $transition;
+      }
+
+      &-actions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        background-color: rgba($c-black, .2);
+        transition: $transition;
+
+        .btn {
+          margin-bottom: $gutter-sm;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        @include breakpoint(mobile) {
+          .cart-btn {
+            display: none;
+          }
+
+          .preview-btn {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    &-header {
+      cursor: pointer;
+    }
+
+    &-title {
+      font-size: $fs-texts;
+      font-weight: $fw-bold;
+      transition: $transition;
+      text-align: center;
+    }
+
+    &-brand {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    &-tags-list {
+      padding: 0;
+
+      &-item {
+        list-style-type: none;
+        display: inline-block;
+        padding: 5px;
+        background-color: $c-gray-200;
+        font-size: $fs-texts-xs;
+        line-height: 1;
+        border-radius: $br;
+        margin-right: $gutter-xs;
+      }
+    }
+  }
+
+  &-detail {
+    width: 100%;
+    height: 100%;
+    background-color: $c-white;
+    padding: $gutter;
+    border-radius: $br;
+    display: flex;
+
+    @include breakpoint(mobile) {
+      flex-direction: column;
+      padding: $gutter-sm;
+    }
+
+    &-preview {
+      position: absolute;
+      top: $gutter-sm;
+      left: $gutter-sm;
+      right: $gutter-sm;
+      bottom: $gutter-sm;
+      @extend %background-contain;
+
+      &.iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &-wrapper {
+        flex: 1 1 auto;
+        position: relative;
+        border: 1px solid $bc;
+        padding: $gutter-sm;
+        transition: $transition;
+        border-radius: $br;
+        overflow: hidden;
+        transition: $transition;
+        margin-right: $gutter;
+
+        @include breakpoint(mobile) {
+          margin-right: 0;
+          margin-bottom: $gutter-sm;
+        }
+      }
+    }
+
+    &-infos {
+      width: 30%;
+      flex: 0 0 auto;
+
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+    }
+
+    &-header, &-footer {
+      flex: 0 0 auto;
+    }
+
+    &-header {
+      flex: 1 1 auto;
+      margin-right: $gutter-sm;
+
+      @include breakpoint(mobile) {
+        margin-right: 0;
+      }
+    }
+
+    &-title {
+      font-size: $fs-h2;
+      font-weight: $fw-bold;
+      margin: 0 0 $gutter-sm;
+
+      @include breakpoint(mobile) {
+        font-size: $fs-h3;
+        text-align: center;
+      }
+    }
+
+    &-metas-list {
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint(mobile) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      &-item {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 $gutter-sm 0;
+        text-align: left;
+
+        @include breakpoint(mobile) {
+          margin: $gutter-sm $gutter-xs;
+          margin-top: 0;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        &-label, &-value {
+          display: block;
+          font-size: $fs-texts-xs;
+
+          @include breakpoint(mobile) {
+            font-size: $fs-texts-xxs;
+            text-align: center;
+          }
+        }
+
+        &-label {
+          color: $fc-light;
+          text-transform: uppercase;
+          margin-bottom: $gutter-xs;
+
+          @include breakpoint(mobile) {
+            margin-bottom: $gutter-xxs;
+          }
+        }
+      }
+    }
+
+    &-footer {
+      @include breakpoint(mobile) {
+        text-align: center;
+      }
+    }
+  }
+}

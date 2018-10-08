@@ -1,0 +1,19 @@
+.message {
+  text-transform: uppercase;
+  font-size: $fs-texts-xs;
+  font-weight: $fw-bold;
+  letter-spacing: 1px;
+  padding: $gutter-xs $gutter-sm;
+  border-radius: $br-sm;
+  border: none;
+  transition: $transition;
+
+  &-lg {
+    font-size: $fs-texts-sm;
+    padding: $gutter-sm $gutter;
+  }
+
+  &-sm {
+    padding: $gutter-xxs $gutter-xs;
+  }
+}

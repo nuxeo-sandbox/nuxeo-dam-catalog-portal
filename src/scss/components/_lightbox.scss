@@ -1,0 +1,121 @@
+.vue-lb {
+  &-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: rgba($c-black, 0.8);
+  }
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    padding: rem(50px) rem(100px);
+
+    @include breakpoint(mobile) {
+      padding: 0;
+    }
+  }
+
+  &-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: rem(100px);
+    height: rem(100px);
+    z-index: 1000;
+
+    @include breakpoint(mobile) {
+      width: $gutter;
+      height: $gutter;
+      background: $fc;
+    }
+  }
+
+  &-figure {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-button-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    background: none;
+    border: none;
+    padding: 0;
+    display: block;
+    text-align: center;
+    font-size: rem(50px);
+    line-height: 1;
+    color: $c-white;
+    cursor: pointer;
+    outline: none;
+    transition: $transition;
+
+    @include breakpoint(mobile) {
+      font-size: rem(30px);
+    }
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    width: rem(100px);
+    font-size: rem(70px);
+    color: $c-white;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: $transition;
+    text-align: center;
+    transform: translateY(-50%);
+    padding: 0;
+
+    @include breakpoint(mobile) {
+      font-size: rem(40px);
+      top: auto;
+      bottom: $gutter-sm;
+      width: rem(64px);
+      height: rem(64px);
+      color: $fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: none;
+    }
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &-left {
+    left: 0;
+  }
+
+  &-right {
+    right: 0;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .2s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}

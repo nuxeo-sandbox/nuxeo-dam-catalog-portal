@@ -1,0 +1,47 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 10px;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin breakpoint($point) {
+  @if $point == mediumscreen {
+    @media (max-width: 1501px) {
+      @content
+    }
+  }
+  @else if $point == smallscreen {
+    @media (max-width: 1301px) {
+      @content
+    }
+  }
+  @else if $point == tablet {
+    @media (max-width: 1001px) {
+      @content
+    }
+  }
+  @else if $point == mobile {
+    @media (max-width: 601px) {
+      @content
+    }
+  }
+}

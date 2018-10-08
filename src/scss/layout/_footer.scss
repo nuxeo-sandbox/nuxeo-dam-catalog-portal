@@ -1,0 +1,21 @@
+.app-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $app-footer-height;
+  z-index: 20;
+  background-color: $c-gray-400;
+  color: $c-white;
+  padding: $gutter-sm 0;
+
+  p {
+    font-size: $fs-texts-xs;
+    margin: 0;
+  }
+
+  &-logo {
+    display: block;
+    height: rem(50px);
+  }
+}

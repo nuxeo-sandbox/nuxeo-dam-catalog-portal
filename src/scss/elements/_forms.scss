@@ -1,0 +1,72 @@
+label {
+  display: block;
+  font-size: $fs-texts-sm;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+
+  & + label {
+    position: relative;
+    padding-left: $gutter;
+    color: $fc-light;
+    cursor: pointer;
+    transition: $transition;
+    font-size: $fs-texts-xs;
+
+    &::before, &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $gutter-sm;
+      height: $gutter-sm;
+      border-radius: $br-sm;
+      transition: $transition;
+    }
+
+    &::before {
+      border: 1px solid $bc;
+      content: " ";
+    }
+
+    &:hover {
+      color: $fc;
+    }
+  }
+
+  &:checked + label {
+    color: $fc;
+
+    &::before {
+      border-color: $c-orange-primary;
+      background-color: $c-orange-primary;
+    }
+
+    &::after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $ff-icons;
+      color: $c-white;
+      content: "\f26b";
+    }
+
+    .search-termfacet-count {
+      color: $c-orange-primary;
+    }
+  }
+}
+
+.pagesize .dropdown.v-select {
+  background-color: $c-white;
+
+  .clear {
+    display: none;
+  }
+}

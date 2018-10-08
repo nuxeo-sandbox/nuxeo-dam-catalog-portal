@@ -1,0 +1,256 @@
+.search {
+  display: flex;
+  position: relative;
+  @include scrollbars(5px, $c-gray-400, $c-gray-200);
+  overflow: hidden;
+
+  &-suggestion {
+    margin-bottom: $gutter-sm;
+  }
+
+  &-suggestions {
+    margin-bottom: $gutter-sm;
+  }
+
+  &-insights {
+    margin-top: $gutter;
+    margin-bottom: $gutter-sm;
+  }
+
+  &-filters {
+    // position: absolute;
+    // left: 0;
+    flex: 0 0 auto;
+    width: $search-filters-width;
+    padding-left: $gutter;
+    background-color: $c-white;
+
+    // &.sticky {
+    //   position: fixed;
+    //   top: 0;
+    //   left: 0;
+    //   max-height: 100%;
+    //   overflow: auto;
+    //   padding-bottom: $gutter;
+    // }
+
+    // &.stickybottom {
+    //   top: auto;
+    //   bottom: 0;
+    // }
+
+    &-group {
+      margin-bottom: $gutter;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &-title {
+        font-weight: $fw-normal;
+        font-size: $fs-texts-lg;
+        margin-bottom: $gutter-sm;
+      }
+
+      &-content {
+        padding-right: $gutter;
+      }
+    }
+
+    @include breakpoint(mobile) {
+      position: fixed;
+      right: 100%;
+      top: 0;
+      height: 100%;
+      width: 250px;
+      z-index: 1000;
+      padding: $gutter-sm;
+      box-shadow: 0 -5px 5px rgba($c-black,.1);
+      overflow: auto;
+      transition: $transition;
+
+      &.visible {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &-content {
+    flex: 0 0 auto;
+    width: calc(100% - #{$search-filters-width});
+    padding: 0 $gutter;
+
+    @include breakpoint(mobile) {
+      padding: 0 15px;
+      width: 100%;
+    }
+  }
+
+  &-termfacet {
+    &-count {
+      font-size: $fs-texts-xs;
+      color: $fc-xlight;
+    }
+
+    &:hover {
+      .search-termfacet-count {
+        color: $fc-light;
+        transition: $transition;
+      }
+    }
+  }
+
+  &-form {
+    position: relative;
+    margin-bottom: $gutter-sm;
+
+    &-submit-btn {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      right: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: rem(24px);
+      transition: $transition;
+      border-radius: 0 $br-sm $br-sm 0;
+      padding: 0 $gutter-sm;
+
+      @include breakpoint(mobile) {
+        width: $gutter;
+        padding: 0;
+      }
+
+      &-label {
+        margin-left: $gutter-xs;
+        text-transform: uppercase;
+        font-size: $fs-texts-xs;
+
+        @include breakpoint(mobile) {
+          display: none;
+        }
+      }
+    }
+
+    &-input {
+      display: block;
+      width: 100%;
+      border: 1px solid $bc;
+      padding: $gutter-xs;
+      border-radius: $br-sm;
+      outline: none;
+      transition: $transition;
+
+      @include breakpoint(mobile) {
+        padding-left: $gutter-xs;
+      }
+
+      &:focus {
+        border-color: $c-orange-primary;
+      }
+
+      &::placeholder {
+        color: $fc-light;
+      }
+    }
+
+    &-filters-btn {
+      position: absolute;
+      right: calc(#{$gutter} + 2px);
+      top: 2px;
+      bottom: 2px;
+      color: $fc;
+      display: none;
+      width: $gutter;
+
+      @include breakpoint(mobile) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  &-results {
+    &-loader {
+      height: rem(500px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: $gutter;
+
+      @include breakpoint(mobile) {
+        margin-top: $gutter-sm;
+        height: rem(200px);
+      }
+
+      &-label {
+        margin-top: $gutter;
+        color: $fc-light;
+      }
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: $gutter;
+
+      @include breakpoint(mobile) {
+        display: block;
+      }
+
+      &-title {
+        margin: 0;
+
+        @include breakpoint(mobile) {
+          font-size: $fs-h2;
+          text-align: center;
+          margin-bottom: $gutter-sm;
+        }
+      }
+
+      &-parameters {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        label {
+          margin: 0 $gutter-xs 0 0;
+        }
+
+        .dropdown {
+          width: 208px;
+
+          .selected-tag {
+            position: absolute;
+          }
+        }
+      }
+    }
+
+    &-footer {
+      margin-top: $gutter;
+      padding: $gutter 0;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid $bc;
+
+      .pagination {
+        margin-bottom: 0;
+
+        .page-link {
+          color: $fc;
+          font-size: $fs-texts-xs;
+          outline: none;
+        }
+
+        .page-item.active .page-link {
+          border-color: $c-orange-primary;
+          color: $c-white;
+        }
+      }
+    }
+  }
+}

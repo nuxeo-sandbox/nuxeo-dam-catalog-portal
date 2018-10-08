@@ -1,0 +1,59 @@
+.btn {
+  text-transform: uppercase;
+  font-size: $fs-texts-xs;
+  font-weight: $fw-bold;
+  letter-spacing: 1px;
+  padding: $gutter-xs $gutter-sm;
+  border-radius: $br-sm;
+  border: none;
+  transition: $transition;
+
+  &-primary {
+    background: linear-gradient(to top, $c-orange-primary, $c-orange-400);
+    border-color: $c-orange-primary;
+
+    &:hover {
+      border-color: $c-orange-primary;
+      background: linear-gradient(to top, $c-orange-primary, $c-orange-primary);
+    }
+
+    &:active {
+      box-shadow: 0 0 4px rgba($c-orange-primary, 0.5)
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &-lg {
+    font-size: $fs-texts-sm;
+    padding: $gutter-sm $gutter;
+  }
+
+  &-sm {
+    padding: $gutter-xxs $gutter-xs;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .sl-spinner {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: $gutter-xs;
+  }
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}

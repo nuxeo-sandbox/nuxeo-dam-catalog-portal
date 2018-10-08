@@ -1,0 +1,39 @@
+.brand {
+  &-item {
+    &-link {
+      display: block;
+      color: $fc;
+
+      &:hover {
+        text-decoration: none;
+        color: $fc;
+
+        .brand-item-logo {
+          opacity: .7;
+        }
+      }
+    }
+
+    &-logo {
+      @extend %background-contain;
+      height: 100px;
+      margin-bottom: $gutter-sm;
+      transition: $transition;
+    }
+
+    &-header {
+      text-align: center;
+    }
+
+    &-title {
+      font-size: $fs-h3;
+      text-transform: uppercase;
+    }
+
+    &-products-count {
+      margin: $gutter-xs 0 0 0;
+      font-size: $fs-texts-sm;
+      opacity: .6;
+    }
+  }
+}

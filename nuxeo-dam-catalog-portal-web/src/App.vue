@@ -28,13 +28,13 @@
              v-if="isGuest">
             <i class="zmdi zmdi-account"></i>
             {{ $t("message.app-login") }}
-          </a>
+          </a-->
           <a class="app-header-link"
              @click="logout()"
              v-if="!isGuest">
             <i class="zmdi zmdi-account"></i>
             {{ $t("message.app-logout") }}
-          </a-->
+          </a>
         </nav>
       </b-container>
     </header>

@@ -38,6 +38,10 @@ DEV_SERVER_URL=http(s)://<servername>
 DEV_SERVER_CRED=<Basic Auth Header Value>  (ex: Basic QWRtaW5pc3RyYXRvcjpBZG1pbmlzdHJhdG9y)
 ```
 
+Run the app locally
+```
+npm run serve
+```
 
 ## Known limitations
 This plugin is a work in progress.

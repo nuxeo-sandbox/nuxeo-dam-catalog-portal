@@ -42,7 +42,9 @@ const i18n = new VueI18n({
 
 var Nuxeo = require('nuxeo/es5');
 Object.defineProperty(Vue.prototype, '$nuxeo', {
-  value: new Nuxeo()
+  value: new Nuxeo({
+    baseURL: '/nuxeo'
+  })
 });
 
 new Vue({

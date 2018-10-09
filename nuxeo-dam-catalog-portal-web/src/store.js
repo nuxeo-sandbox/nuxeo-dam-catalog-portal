@@ -40,7 +40,9 @@ const store = new Vuex.Store({
 
   actions: {
     updateCart(context) {
-      var nuxeo = new Nuxeo();
+      var nuxeo = new Nuxeo({
+          baseURL: '/nuxeo'
+        });
      nuxeo.operation('javascript.CART_GetCartContents')
         .params({
           'cartId': context.state.cartId

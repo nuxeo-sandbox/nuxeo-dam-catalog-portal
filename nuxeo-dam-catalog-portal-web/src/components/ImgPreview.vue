@@ -27,14 +27,18 @@
     watch: {
       url(url) {
         this.$nextTick(function () {
-          this.createViewer();
+          if (this.$viewer) {
+            this.$viewer.update();
+          } else {
+            this.createViewer();
+          }
         })
       },
     },
 
     methods: {
       createViewer () {
-        this.$viewer && this.$viewer.destroy();
+        //this.$viewer && this.$viewer.destroy();
         this.$viewer = new Viewer(this.$refs.image, {
           inline: true,
           navbar: false,

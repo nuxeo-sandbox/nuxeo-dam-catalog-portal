@@ -117,10 +117,11 @@
               {{ $t('message.search-result-count') }}: <strong>{{total}}</strong>
             </h2>
             <div class="search-results-header-parameters pagesize">
-              <label for="pagesize">
+              <label for="pagesize" style="width:250px;text-align:right;">
                 {{ $t('message.search-results-per-page') }}
               </label>
-              <v-select v-model="pagesize" :options="sizes"></v-select>
+              <multiselect v-model="pagesize" :options="sizes" track-by="value" label="label" :allow-empty="false" :showLabels="false" placeholder="Size">
+              </multiselect>
             </div>
           </header>
           <div class="search-results-content">
@@ -202,8 +203,9 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect'
+import 'vue-multiselect/dist/vue-multiselect.min.css'
 import TermFacet from '../components/TermFacet.vue'
-import vSelect from 'vue-select'
 import Lightbox from '../components/Lightbox.vue'
 import Spinner from 'vue-spinner-component/src/Spinner.vue'
 import { constants } from '../constants.js'
@@ -213,7 +215,7 @@ import NuxeoDocumentSuggestion from '../components/NuxeoDocumentSuggestion.vue'
 export default {
 
   components: {
-    vSelect,
+    Multiselect,
     TermFacet,
     Lightbox,
     Spinner,

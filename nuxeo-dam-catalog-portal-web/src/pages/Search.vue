@@ -310,17 +310,29 @@ export default {
     },
 
     productLineFilterChanged(selection) {
-      this.queryParams.business_product_line = selection.value;
+      var values = [];
+      selection.forEach(function(item) {
+        values.push(item.value);
+      });
+      this.queryParams.business_product_line_1 = values;
       this.search();
     },
 
     productFilterChanged(selection) {
-      this.queryParams.business_product = selection.value;
+      var values = [];
+      selection.forEach(function(item) {
+        values.push(item.value);
+      });
+      this.queryParams.business_product_1 = JSON.stringify(values);
       this.search();
     },
 
     brandFilterChanged(selection) {
-      this.queryParams.business_brand = selection.value;
+      var values = [];
+      selection.forEach(function(item) {
+        values.push(item.value);
+      });
+      this.queryParams.business_brand_1 = JSON.stringify(values);
       this.search();
     },
 
@@ -364,7 +376,7 @@ export default {
 
     setInitialFiltersFromRoute() {
       if (this.productline) {
-        this.queryParams.business_product_line = this.productline;
+        this.queryParams.business_product_line_1 = this.productline;
         this.$refs.productLineFilter.value = {
           value: this.productline,
           label: this.productline
@@ -375,7 +387,7 @@ export default {
         this.queryParams.business_product_agg = JSON.stringify([this.productid]);
       }
       if (this.brand) {
-        this.queryParams.business_brand = this.brand;
+        this.queryParams.business_brand_1 = this.brand;
         this.$refs.brandFilter.value = {
           value: this.brand,
           label: this.brand

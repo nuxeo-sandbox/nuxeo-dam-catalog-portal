@@ -11,7 +11,8 @@
     track-by="value"
     :custom-label="getLabel"
     @open="searchAll"
-    @select="selectionChanged">
+    @input="selectionChanged"
+    :multiple="true">
   </multiselect>
 
 </template>

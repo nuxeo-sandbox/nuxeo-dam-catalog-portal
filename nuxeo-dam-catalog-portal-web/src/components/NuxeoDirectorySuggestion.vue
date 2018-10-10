@@ -11,8 +11,8 @@
     track-by="value"
     :custom-label="getLabel"
     @open="searchAll"
-    @select="selectionChanged"
-    @remove="selectionRemoved">
+    @input="selectionChanged"
+    :multiple="true">
   </multiselect>
 
 </template>
@@ -97,10 +97,6 @@
 
       selectionChanged(selectedOption, id) {
         this.$emit('change', selectedOption);
-      },
-
-      selectionRemoved(removedOption, id) {
-        this.$emit('change', {});
       }
 
     }

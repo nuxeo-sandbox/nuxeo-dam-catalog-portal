@@ -389,7 +389,7 @@ export default {
         this.queryParams.business_product_agg = JSON.stringify([this.productid]);
       }
       if (this.brand) {
-        this.queryParams.business_brand_1 = this.brand;
+        this.queryParams.business_brand_1 = JSON.stringify([this.brand]);
         this.$refs.brandFilter.value = {
           value: this.brand,
           label: this.brand

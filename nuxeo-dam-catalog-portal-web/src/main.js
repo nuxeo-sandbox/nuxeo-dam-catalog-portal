@@ -18,6 +18,7 @@ import classlist from 'classlist-polyfill'
 import VueI18n from 'vue-i18n'
 import i18n_en from './lang/en.json'
 import i18n_ja from './lang/ja.json'
+import i18n_fr from './lang/fr.json'
 
 Vue.config.productionTip = false
 
@@ -32,7 +33,8 @@ Vue.component('icon', Icon)
 
 const messages = {
   en: i18n_en,
-  ja: i18n_ja
+  ja: i18n_ja,
+  fr: i18n_fr
 }
 
 const i18n = new VueI18n({

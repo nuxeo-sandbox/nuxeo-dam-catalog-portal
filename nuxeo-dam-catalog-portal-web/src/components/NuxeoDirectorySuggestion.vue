@@ -59,7 +59,10 @@
             directoryName: this.directoryName,
             searchTerm: query,
             canSelectParent: true,
-            filterParent: true
+            filterParent: true,
+            dbl10n: false
+            lang: (navigator.language || navigator.userLanguage).substring(0,2),
+            localize: true
           })
         .execute()
         .then(function(data) {

@@ -60,7 +60,7 @@
             searchTerm: query,
             canSelectParent: true,
             filterParent: true,
-            dbl10n: false
+            dbl10n: false,
             lang: (navigator.language || navigator.userLanguage).substring(0,2),
             localize: true
           })

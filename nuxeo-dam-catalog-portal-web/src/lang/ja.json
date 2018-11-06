@@ -55,7 +55,7 @@
     "home-banner-description": "製品カタログへようこそ",
     "home-banner-cta": "カタログを閲覧する",
     "home-featured-products": "おすすめ商品",
-    "home-brands": "Brands",
+    "home-brands": "ブランド",
     "home-product-lines": "製品カテゴリ",
     "home-all-products": "全ての商品",
     "home-category-sinks": "洗面化粧室",
@@ -67,7 +67,7 @@
     "home-actions-add-to-cart": "カートに追加",
 
     "search-": "Labels for Search.vue",
-    "search-filter-brand": "Brands",
+    "search-filter-brand": "Rainierのブランド",
     "search-filter-product-line": "生産ライン",
     "search-filter-product": "製品",
     "search-filter-type": "タイプ",

@@ -20,5 +20,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+*.iml
 
 package-lock.json

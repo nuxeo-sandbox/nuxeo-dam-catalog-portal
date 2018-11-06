@@ -8,8 +8,8 @@
     <!-- Include your artifacts in the graph adding your groupId to groupPrefixes -->
     <artifact:nuxeo-expand includeTestScope="true" groupPrefixes="org.nuxeo,org.nuxeo.dam.demo"/>
     <!-- For Nuxeo IDE being able to use that distribution as a SDK -->
-    <artifact:print output="${outdir}/artifacts.properties" mode="sdk"/>
-    <artifact:print output="${outdir}/test-artifacts.properties" mode="sdk" scopes="test"/>
+    <artifact:print output="${outdir}/nuxeo-dam-catalog-portal-artifacts.properties" mode="sdk"/>
+    <artifact:print output="${outdir}/test-nuxeo-dam-catalog-portal-artifacts.properties" mode="sdk" scopes="test"/>
     <!-- Prints the graph for debugging purpose -->
     <artifact:print output="${outdir}/dependency-tree.log"/>
     <tstamp/>

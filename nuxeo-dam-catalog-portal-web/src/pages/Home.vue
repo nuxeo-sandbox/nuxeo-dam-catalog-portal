@@ -74,12 +74,12 @@ export default {
   methods: {
 
     fetchBrands() {
-
       this.$nuxeo.request('search/pp/channel_list/execute', {
         schemas : '*',
         headers : {
           'enrichers.document': 'thumbnail',
-          'fetch.document': 'business:brand'
+          'fetch.document': 'business:brand',
+          'X-NXtranslate.directoryEntry': 'label'
         }
       })
       .get()

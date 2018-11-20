@@ -346,7 +346,8 @@ export default {
           headers : {
             'enrichers.document': 'thumbnail,preview,permissions',
             'X-NXfetch.aggregate': 'key',
-            'fetch.document': 'business:product,business:product_line'
+            'fetch.document': 'business:product,business:product_line',
+            'X-NXtranslate.directoryEntry': 'label'
           },
           queryParams : this.queryParams
         })

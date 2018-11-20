@@ -45,12 +45,14 @@
     "home-banner-title":"商品カタログ",
     "home-banner-description":"Rainierの商品カタログへようこそ",
     "home-banner-cta":"カタログを閲覧する",
+    "home-brands": "Rainierのブランド",
     "home-featured-products":"おすすめ商品",
     "home-product-lines":"商品カテゴリー",
     "home-all-products":"全ての商品",
     "home-actions-details":"詳細",
     "home-actions-add-to-cart":"カートに追加",
     "search-":"Labels for Search.vue",
+    "search-filter-brand": "ブランド",
     "search-filter-product-line":"商品カテゴリー",
     "search-filter-product":"商品",
     "search-filter-type":"タイプ",
@@ -74,6 +76,7 @@
     "app-home":"ホーム",
     "app-search":"検索",
     "app-login":"ログイン",
-    "app-logout":"ログアウト"
+    "app-logout":"ログアウト",
+    "app-copyright": "著作権©2018 RAINIERグループ株式会社。全著作権所有。"
   }
 }

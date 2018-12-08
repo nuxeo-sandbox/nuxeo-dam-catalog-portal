@@ -51,8 +51,8 @@
     "cart-unable-to-clear": "Unable to clear Cart",
 
     "home-": "Labels for Home.vue",
-    "home-banner-title": "Products Catalog",
-    "home-banner-description": "Welcome to the Rainier Products Catalog.",
+    "home-banner-title": "Product Catalog",
+    "home-banner-description": "Welcome to the Lowe's Product Catalog.",
     "home-banner-cta": "Browse catalog",
     "home-featured-products": "Featured Products",
     "home-brands": "Brands",
@@ -93,6 +93,6 @@
     "app-search": "Search",
     "app-login": "Login",
     "app-logout": "Logout",
-    "app-copyright": "Copyright © 2018 Rainier Group Corporation. All rights reserved."
+    "app-copyright": "Copyright © 2018 Lowe's Lowe's Companies, Inc.. All rights reserved."
   }
 }

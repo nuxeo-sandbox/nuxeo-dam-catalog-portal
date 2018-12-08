@@ -31,6 +31,12 @@ mvn clean install
 cd nuxeo-dam-catalog-portal-web
 ```
 
+Install dependencies if necessary:
+
+```
+npm install
+```
+
 create a .env.local file and set the following variables
 
 ```
@@ -39,6 +45,7 @@ DEV_SERVER_CRED=<Basic Auth Header Value>  (ex: Basic QWRtaW5pc3RyYXRvcjpBZG1pbm
 ```
 
 Run the app locally
+
 ```
 npm run serve
 ```

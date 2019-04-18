@@ -19,6 +19,7 @@ import VueI18n from 'vue-i18n'
 import i18n_en from './lang/en.json'
 import i18n_ja from './lang/ja.json'
 import i18n_fr from './lang/fr.json'
+import Carousel3d from 'vue-carousel-3d'
 
 Vue.config.productionTip = false
 
@@ -28,6 +29,7 @@ Vue.use(Toasted)
 Vue.use(UUID)
 Vue.use(VueLocalStorage)
 Vue.use(VueI18n)
+Vue.use(Carousel3d)
 
 Vue.component('icon', Icon)
 

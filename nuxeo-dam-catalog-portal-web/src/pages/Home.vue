@@ -1,46 +1,62 @@
-<template>
+  <template>
   <main class="main-content">
-    <section class="section banner-section" style="background-image: url('./images/covers/home.jpg')">
+    <section
+      class="section banner-section"
+      style="background-image: url('./images/covers/home.jpg')"
+    >
       <b-container>
-        <header class="banner-section-header">
-          <h1 class="banner-section-title">
-            {{ $t("message.home-banner-title") }}
-          </h1>
-          <div class="banner-section-desc">
-            <p>
-              {{ $t("message.home-banner-description") }}
-            </p>
+        <section class="section">
+          <header class="section-header">
+            <h2 class="section-title">{{ $t("message.home-banner-title") }}</h2>
+          </header>
+          <!--header class="banner-section-header">
+            <h1 class="banner-section-title">
+              {{ $t("message.home-banner-title") }}
+            </h1>
+            <div class="banner-section-desc">
+              <p>
+                {{ $t("message.home-banner-description") }}
+              </p>
+            </div>
+            <div class="banner-section-cta">
+              <router-link class="btn btn-primary" to="/search">
+                {{ $t("message.home-banner-cta") }}
+                <i class="zmdi zmdi-arrow-right"></i>
+              </router-link>
+            </div>
+          </header-->
+          <div class="section-content">
+            <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="10">
+              <slide v-for="(slide, i) in images" :index="i" :key="i">
+                <figure>
+                  <img v-bind:src="slide.src">
+                  <figcaption>
+                    <p>{{slide.caption}}</p>
+                  </figcaption>
+                </figure>
+              </slide>
+            </carousel-3d>
           </div>
-          <div class="banner-section-cta">
-            <router-link class="btn btn-primary" to="/search">
-              {{ $t("message.home-banner-cta") }}
-              <i class="zmdi zmdi-arrow-right"></i>
-            </router-link>
-          </div>
-        </header>
+        </section>
       </b-container>
     </section>
     <b-container>
       <section class="section">
         <header class="section-header">
-          <h2 class="section-title">
-            {{ $t("message.home-brands") }}
-          </h2>
+          <h2 class="section-title">{{ $t("message.home-brands") }}</h2>
         </header>
         <div class="section-content">
           <b-row class="category-list">
-          <b-col md="6" xl="3" v-for="brand in brands">
-            <article class="category-item">
-              <router-link class="category-item-link" :to="getBrandLink(brand)">
-                <div class="category-item-cover" :style="getBrandStyle(brand)"></div>
-                <header class="category-item-header">
-                  <h3 class="category-item-title">
-                    {{getBrandName(brand)}}
-                  </h3>
-                </header>
-              </router-link>
-            </article>
-          </b-col>
+            <b-col md="6" xl="3" v-for="brand in brands">
+              <article class="category-item">
+                <router-link class="category-item-link" :to="getBrandLink(brand)">
+                  <div class="category-item-cover" :style="getBrandStyle(brand)"></div>
+                  <header class="category-item-header">
+                    <h3 class="category-item-title">{{getBrandName(brand)}}</h3>
+                  </header>
+                </router-link>
+              </article>
+            </b-col>
           </b-row>
         </div>
       </section>
@@ -57,57 +73,127 @@
 </template>
 
 <script>
+import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
-  components: {},
+  components: {
+    Carousel3d,
+    Slide
+  },
 
   data() {
     return {
-      brands: []
-    }
+      brands: [],
+      results: [],
+    };
   },
 
   created() {
     this.fetchBrands();
+    this.fetchImages();
+    this.images;
+  },
+
+  computed: {
+    images: function () {
+      var images = [];
+      this.results.forEach(function(item) {
+        images.push({
+          thumb : item.contextParameters.thumbnail.url,
+          src : item.contextParameters.thumbnail.url,
+          caption : item.title,
+          document: item
+        })
+      })
+      return images;
+    }
   },
 
   methods: {
-
     fetchBrands() {
-      this.$nuxeo.request('search/pp/channel_list/execute', {
-        schemas : '*',
-        headers : {
-          'enrichers.document': 'thumbnail',
-          'fetch.document': 'business:brand',
-          'X-NXtranslate.directoryEntry': 'label'
-        }
-      })
-      .get()
-      .then(function(data) {
-        console.log(data);
-        this.brands = data.entries;
-      }.bind(this))
-      .catch(function(error) {
-        throw error
-      });
+      this.$nuxeo.request("search/pp/channel_list/execute", {
+          schemas: "*",
+          headers: {
+            "enrichers.document": "thumbnail",
+            "fetch.document": "business:brand",
+            "X-NXtranslate.directoryEntry": "label"
+          }
+        })
+        .get()
+        .then(
+          function(data) {
+            console.log(data);
+            this.brands = data.entries;
+          }.bind(this)
+        )
+        .catch(function(error) {
+          throw error;
+        });
+    },
+
+    fetchImages() {
+      this.$nuxeo.request("search/pp/asset-search-portal/execute", {
+          schemas : ['dublincore','business','picture','video'],
+          headers : {
+            'enrichers.document': 'thumbnail,preview,permissions',
+            'X-NXfetch.aggregate': 'key',
+            'fetch.document': 'business:product,business:product_line',
+            'X-NXtranslate.directoryEntry': 'label'
+          },
+          queryParams : this.queryParams
+        })
+        .get()
+        .then(function(data) {
+          this.results.splice(0,this.results.length);
+          data.entries.forEach(function(entry) {
+            this.results.push(entry);
+          }.bind(this))
+        }.bind(this))
+        .catch(function(error) {
+          throw error;
+        });
     },
 
     getBrandLink(brand) {
-      return "/search?brand="+brand.properties['business:brand'].id;
+      return "/search?brand=" + brand.properties["business:brand"].id;
     },
 
     getBrandName(brand) {
-      return brand.properties['business:brand'].properties.label;
+      return brand.properties["business:brand"].properties.label;
     },
 
     getBrandStyle(brand) {
-      return "background-image: url('"+brand.contextParameters.thumbnail.url+"')";
-    },
-
+      return (
+        "background-image: url('" + brand.contextParameters.thumbnail.url + "')"
+      );
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">
-
+figure {
+  padding: 0;
+  margin: 0;
+}
+figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  background-color: black;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+  /* Netscape */
+  -moz-opacity: 0.5;
+  /* Safari 1.x */
+  -khtml-opacity: 0.5;
+  /* Good browsers */
+  opacity: 0.5;
+}
 </style>

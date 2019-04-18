@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
+    "cache-loader": "1.2.2",
     "classlist-polyfill": "^1.2.0",
     "npm": "^6.4.0",
     "nuxeo": "^3.7.1",
     "viewerjs": "^1.2.0",
     "vue": "^2.5.16",
     "vue-awesome": "^3.0.5",
+    "vue-carousel-3d": "file:../../vue-carousel-3d/vue-carousel-3d-0.2.0.tgz",
     "vue-i18n": "^8.0.0",
+    "vue-l-carousel": "^1.1.0",
     "vue-lazyload": "^1.2.6",
     "vue-localstorage": "^0.6.2",
     "vue-multiselect": "^2.1.0",
@@ -27,8 +30,7 @@
     "vue-toasted": "^1.1.24",
     "vue-uuid": "^1.0.0",
     "vue-video-player": "^5.0.2",
-    "vuex": "^3.0.1",
-    "cache-loader": "1.2.2"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",

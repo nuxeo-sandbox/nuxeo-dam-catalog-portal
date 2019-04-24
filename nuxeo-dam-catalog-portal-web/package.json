@@ -19,7 +19,7 @@
     "viewerjs": "^1.2.0",
     "vue": "^2.5.16",
     "vue-awesome": "^3.0.5",
-    "vue-carousel-3d": "file:../../vue-carousel-3d/vue-carousel-3d-0.2.0.tgz",
+    "vue-carousel-3d": "^0.2.0",
     "vue-i18n": "^8.0.0",
     "vue-lazyload": "^1.2.6",
     "vue-localstorage": "^0.6.2",

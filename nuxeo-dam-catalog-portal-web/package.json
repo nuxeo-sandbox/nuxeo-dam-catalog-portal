@@ -21,7 +21,6 @@
     "vue-awesome": "^3.0.5",
     "vue-carousel-3d": "file:../../vue-carousel-3d/vue-carousel-3d-0.2.0.tgz",
     "vue-i18n": "^8.0.0",
-    "vue-l-carousel": "^1.1.0",
     "vue-lazyload": "^1.2.6",
     "vue-localstorage": "^0.6.2",
     "vue-multiselect": "^2.1.0",

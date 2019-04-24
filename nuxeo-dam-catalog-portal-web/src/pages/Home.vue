@@ -47,7 +47,7 @@
         </header>
         <div class="section-content">
           <b-row class="category-list">
-            <b-col md="6" xl="3" v-for="brand in brands">
+            <b-col md="6" xl="3" v-for="brand in brands" v-bind:key="brand">
               <article class="category-item">
                 <router-link class="category-item-link" :to="getBrandLink(brand)">
                   <div class="category-item-cover" :style="getBrandStyle(brand)"></div>

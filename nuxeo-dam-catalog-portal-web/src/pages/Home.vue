@@ -97,14 +97,9 @@ export default {
 
     fetchImages() {
       this.$nuxeo.request("search/pp/asset-search-portal/execute", {
-          schemas : ['dublincore','business','picture','video'],
           headers : {
-            'enrichers.document': 'thumbnail,preview,permissions',
-            'X-NXfetch.aggregate': 'key',
-            'fetch.document': 'business:product,business:product_line',
-            'X-NXtranslate.directoryEntry': 'label'
-          },
-          queryParams : this.queryParams
+            'enrichers.document': 'thumbnail'
+          }
         })
         .get()
         .then(function(data) {
@@ -113,7 +108,6 @@ export default {
                 thumb : entry.contextParameters.thumbnail.url,
                 src : entry.contextParameters.thumbnail.url,
                 caption : entry.title,
-                document: entry
               };
           });
         }.bind(this))

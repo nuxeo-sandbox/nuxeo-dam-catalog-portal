@@ -6,9 +6,6 @@
     >
       <b-container>
         <section class="section">
-          <header class="section-header">
-            <h2 class="section-title">{{ $t("message.home-banner-title") }}</h2>
-          </header>
           <div class="section-content">
             <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="10">
               <slide v-for="(slide, i) in images" :index="i" :key="i">

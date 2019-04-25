@@ -6,6 +6,7 @@
           <router-link to="/" class="app-header-logo-link">
             <img src="logo.png" class="app-header-logo-img">
           </router-link>
+            <h2 class="section-title">{{ $t("message.home-banner-title") }}</h2>
         </div>
         <nav class="app-header-cart-nav">
           <router-link class="app-header-link cart-link" to="/cart">

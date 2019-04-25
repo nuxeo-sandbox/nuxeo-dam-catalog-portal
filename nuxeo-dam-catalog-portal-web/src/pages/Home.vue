@@ -87,7 +87,6 @@ export default {
         .get()
         .then(
           function(data) {
-            console.log(data);
             this.brands = data.entries;
           }.bind(this)
         )

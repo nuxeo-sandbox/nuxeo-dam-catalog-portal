@@ -65,7 +65,6 @@ export default {
   data() {
     return {
       brands: [],
-      results: [],
       images: []
     };
   },
@@ -110,17 +109,14 @@ export default {
         })
         .get()
         .then(function(data) {
-          this.results.splice(0,this.results.length);
-          data.entries.forEach(function(entry) {
-            this.results.push(entry);
-            this.images.push({
+          this.images = data.entries.map(function(entry) {
+            return {
                 thumb : entry.contextParameters.thumbnail.url,
                 src : entry.contextParameters.thumbnail.url,
                 caption : entry.title,
                 document: entry
-              });
-
-          }.bind(this))
+              };
+          });
         }.bind(this))
         .catch(function(error) {
           throw error;

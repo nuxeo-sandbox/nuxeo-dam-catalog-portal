@@ -9,22 +9,6 @@
           <header class="section-header">
             <h2 class="section-title">{{ $t("message.home-banner-title") }}</h2>
           </header>
-          <!--header class="banner-section-header">
-            <h1 class="banner-section-title">
-              {{ $t("message.home-banner-title") }}
-            </h1>
-            <div class="banner-section-desc">
-              <p>
-                {{ $t("message.home-banner-description") }}
-              </p>
-            </div>
-            <div class="banner-section-cta">
-              <router-link class="btn btn-primary" to="/search">
-                {{ $t("message.home-banner-cta") }}
-                <i class="zmdi zmdi-arrow-right"></i>
-              </router-link>
-            </div>
-          </header-->
           <div class="section-content">
             <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="10">
               <slide v-for="(slide, i) in images" :index="i" :key="i">

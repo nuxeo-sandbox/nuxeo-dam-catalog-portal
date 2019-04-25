@@ -66,28 +66,13 @@ export default {
     return {
       brands: [],
       results: [],
+      images: []
     };
   },
 
   created() {
     this.fetchBrands();
     this.fetchImages();
-    this.images;
-  },
-
-  computed: {
-    images: function () {
-      var images = [];
-      this.results.forEach(function(item) {
-        images.push({
-          thumb : item.contextParameters.thumbnail.url,
-          src : item.contextParameters.thumbnail.url,
-          caption : item.title,
-          document: item
-        })
-      })
-      return images;
-    }
   },
 
   methods: {
@@ -128,6 +113,13 @@ export default {
           this.results.splice(0,this.results.length);
           data.entries.forEach(function(entry) {
             this.results.push(entry);
+            this.images.push({
+                thumb : entry.contextParameters.thumbnail.url,
+                src : entry.contextParameters.thumbnail.url,
+                caption : entry.title,
+                document: entry
+              });
+
           }.bind(this))
         }.bind(this))
         .catch(function(error) {

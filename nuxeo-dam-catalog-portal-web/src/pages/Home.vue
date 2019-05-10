@@ -7,7 +7,7 @@
       <b-container>
         <section class="section">
           <div class="section-content">
-            <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="10">
+            <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="10" ref="carousel">
               <slide v-for="(slide, i) in images" :index="i" :key="i">
                 <figure>
                   <img v-bind:src="slide.src">
@@ -110,6 +110,9 @@ export default {
                 caption : entry.title,
               };
           });
+          this.$nextTick(function () {
+            this.$refs.carousel.computeData(true);
+          })
         }.bind(this))
         .catch(function(error) {
           throw error;

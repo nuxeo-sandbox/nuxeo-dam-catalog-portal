@@ -73,12 +73,12 @@
             });
           }.bind(this));
         }.bind(this))
-        .catch(function(error) {
+        .catch(function() {
           this.isLoading = false;
         }.bind(this));
       },
 
-      searchAll(id) {
+      searchAll() {
         //this.search('');
       },
 
@@ -86,7 +86,7 @@
         return entry.label;
       },
 
-      selectionChanged(selectedOption, id) {
+      selectionChanged(selectedOption) {
         this.$emit('change', selectedOption);
       }
 

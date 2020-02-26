@@ -32,7 +32,8 @@
           } else {
             this.createViewer();
           }
-        })
+        });
+        return url;
       },
     },
 

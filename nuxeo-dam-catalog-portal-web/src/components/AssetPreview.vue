@@ -62,14 +62,12 @@
             {{ $t("message.assetPreview-add-to-cart") }}
           </b-button>
         </div>
-        <!--master-request :assetId="asset.uid"></master-request-->
       </footer>
     </div>
   </div>
 </template>
 
 <script>
-  import MasterRequest from './MasterRequest.vue'
   import { constants } from '../constants.js'
   import ImgPreview from './ImgPreview.vue'
 
@@ -79,7 +77,6 @@
   export default {
 
     components: {
-      MasterRequest,
       ImgPreview,
       videoPlayer
     },

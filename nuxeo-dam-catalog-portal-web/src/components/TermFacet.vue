@@ -30,6 +30,7 @@
     watch: {
       data(data) {
         this._updateBuckets();
+        return data;
       },
     },
 

@@ -47,6 +47,16 @@
             </goals>
           </execution>
           <execution>
+            <id>add npm registry</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>config set registry https://registry.npmjs.org/</arguments>
+            </configuration>
+          </execution>
+          <execution>
             <id>npm install</id>
             <phase>generate-resources</phase>
             <goals>

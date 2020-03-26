@@ -15,7 +15,6 @@
     "cache-loader": "1.2.2",
     "classlist-polyfill": "^1.2.0",
     "core-js": "^3.6.4",
-    "npm": "^6.14.0",
     "nuxeo": "^3.16.1",
     "viewerjs": "^1.5.0",
     "vue": "^2.6.11",

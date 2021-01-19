@@ -22,34 +22,12 @@
   <repositories>
     <repository>
       <id>public</id>
-      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <url>https://packages.nuxeo.com/repository/public</url>
       <releases>
         <enabled>true</enabled>
       </releases>
       <snapshots>
         <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>public-snapshot</id>
-      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>nuxeo-studio</id>
-      <url>https://connect.nuxeo.com/nuxeo/site/studio/maven</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
@@ -57,7 +35,7 @@
   <pluginRepositories>
     <pluginRepository>
       <id>public</id>
-      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <url>https://packages.nuxeo.com/repository/public</url>
       <name>Nuxeo releases</name>
       <releases>
         <enabled>true</enabled>

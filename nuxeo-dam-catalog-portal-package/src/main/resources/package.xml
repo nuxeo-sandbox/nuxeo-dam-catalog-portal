@@ -2,9 +2,9 @@
 <package type="addon" name="nuxeo-dam-catalog-portal-package" version="@VERSION@">
   <title>Nuxeo DAM Catalog Portal</title>
   <description>
-    <p>Put here an HTML description of your Nuxeo Package.</p>
+    <p>A sample DAM brand portal for the Nuxeo Platform</p>
   </description>
-  <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
+  <home-page>https://github.com/nuxeo-sandbox/nuxeo-dam-catalog-portal</home-page>
   <vendor></vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
@@ -16,8 +16,7 @@
   <production-state>testing</production-state>
   <supported>false</supported>
   <platforms>
-    <platform>server-@DISTRIB_VERSION@</platform>
-    <platform>server-@DISTRIB_VERSION@-HF*</platform>
+    <platform>lts-@NUXEO_TARGET_VERSION@</platform>
   </platforms>
   <!-- Dependencies on other packages -->
   <!-- <dependencies> -->

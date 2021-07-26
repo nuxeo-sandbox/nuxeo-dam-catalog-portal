@@ -9,7 +9,7 @@
 
   <groupId>org.nuxeo.dam.demo</groupId>
   <artifactId>nuxeo-dam-catalog-portal-parent</artifactId>
-  <version>2021.0.0-SNAPSHOT</version>
+  <version>2021.1.0-SNAPSHOT</version>
   <name>Nuxeo Dam Catalog Portal</name>
   <description />
   <packaging>pom</packaging>

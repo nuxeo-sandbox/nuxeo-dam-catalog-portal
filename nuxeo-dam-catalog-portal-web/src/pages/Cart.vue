@@ -147,7 +147,7 @@ export default {
         }
       };
 
-      this.$nuxeo.operation('javascript.CART_GetCartContents')
+      this.$nuxeo.operation('javascript.api_shopping_cart_get_content')
         .params(this.getCartIdParams())
         .execute(opts)
         .then(function(data) {
@@ -180,7 +180,7 @@ export default {
     },
 
     removeFromCart(docId) {
-      this.$nuxeo.operation('javascript.CART_RemoveFromCart')
+      this.$nuxeo.operation('javascript.api_shopping_cart_remove_content')
         .input('docs:' + docId)
         .params(this.getCartIdParams())
         .execute()
@@ -265,7 +265,7 @@ export default {
 
       this.$toasted.info(this.$t('message.cart-zipping'), constants.TOASTED_PERSIST_OPTIONS);
 
-      this.$nuxeo.operation('javascript.CART_ZipCart')
+      this.$nuxeo.operation('javascript.api_shopping_cart_zip')
         .input(this.cartAssets)
         .params(params)
         .execute()
@@ -318,7 +318,7 @@ export default {
           })
           .join(',');
 
-        this.$nuxeo.operation("javascript.CART_RemoveFromCart")
+        this.$nuxeo.operation("javascript.api_shopping_cart_remove_content")
           .input('docs:' + uids)
           .params(this.getCartIdParams())
           .execute()

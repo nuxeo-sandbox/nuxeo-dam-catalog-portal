@@ -43,7 +43,7 @@ const store = new Vuex.Store({
       var nuxeo = new Nuxeo({
           baseURL: '/nuxeo'
         });
-     nuxeo.operation('javascript.CART_GetCartContents')
+     nuxeo.operation('javascript.api_shopping_cart_get_content')
         .params({
           'cartId': context.state.cartId
         })

@@ -74,11 +74,11 @@ export default {
   methods: {
 
     fetchBrands() {
-      this.$nuxeo.request('search/pp/channel_list/execute', {
+      this.$nuxeo.request('search/pp/channel-list/execute', {
         schemas : '*',
         headers : {
           'enrichers.document': 'thumbnail',
-          'fetch.document': 'business:brand',
+          'fetch.document': 'channel:brand',
           'X-NXtranslate.directoryEntry': 'label'
         }
       })
@@ -93,11 +93,11 @@ export default {
     },
 
     getBrandLink(brand) {
-      return "/search?brand="+brand.properties['business:brand'].id;
+      return "/search?brand="+brand.properties['channel:brand'].id;
     },
 
     getBrandName(brand) {
-      return brand.properties['business:brand'].properties.label;
+      return brand.properties['channel:brand'].properties.label;
     },
 
     getBrandStyle(brand) {

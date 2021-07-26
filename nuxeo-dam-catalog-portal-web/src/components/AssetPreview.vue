@@ -1,10 +1,10 @@
 <template>
   <div class="product-detail">
     <div class="product-detail-preview-wrapper">
-      <img-preview :url="imageUrl" v-if="asset.type === 'Picture'" class="product-detail-preview"></img-preview>
+      <img-preview :url="imageUrl" v-if="assetType === 'Picture'" class="product-detail-preview"></img-preview>
       <div
         class="product-detail-preview"
-        v-else-if="asset.type === 'Video'">
+        v-else-if="assetType === 'Video'">
         <video-player  class="video-player-box product-detail-preview-video"
                ref="videoPlayer"
                :options="playerOptions"
@@ -13,7 +13,7 @@
       </div>
       <iframe
         class="product-detail-preview iframe"
-        v-else-if="asset.type === 'File'"
+        v-else-if="assetType === 'File'"
         :src="pdfUrl"
          frameborder="0">
       </iframe>
@@ -24,14 +24,14 @@
           {{title}}
         </h1>
         <ul class="product-detail-metas-list">
-          <li class="product-detail-metas-list-item">
+          <!--li class="product-detail-metas-list-item">
             <span class="product-detail-metas-list-item-label" v-if="productline">
              {{ $t("message.assetPreview-product-line") }}
             </span>
             <span class="product-detail-metas-list-item-value">
               {{productline}}
             </span>
-          </li>
+          </li-->
           <li class="product-detail-metas-list-item" v-if="product">
             <span class="product-detail-metas-list-item-label">
              {{ $t("message.assetPreview-product") }}
@@ -40,14 +40,14 @@
               {{product}}
             </span>
           </li>
-          <li class="product-detail-metas-list-item" v-if="usage">
+          <!--li class="product-detail-metas-list-item" v-if="usage">
             <span class="product-detail-metas-list-item-label">
              {{ $t("message.assetPreview-usage") }}
             </span>
             <span class="product-detail-metas-list-item-value">
               {{usage}}
             </span>
-          </li>
+          </li-->
         </ul>
       </header>
       <footer class="product-detail-footer">
@@ -88,6 +88,17 @@
     },
 
     computed: {
+      assetType() {
+        if (this.asset.facets.indexOf('Picture')>0) {
+          return 'Picture';
+        } else if (this.asset.facets.indexOf('Video')>0) {
+          return 'Video';
+        } else if (this.asset.facets.indexOf('Audio')>0) {
+          return 'Audio';
+        } else {
+          return 'File'
+        }
+      },
       pdfUrl() {
         return this.asset.contextParameters.preview.url;
       },
@@ -109,14 +120,14 @@
       title() {
         return this.asset.title;
       },
-      productline() {
+      /*productline() {
         var line = this.asset.properties['business:product_line'];
         return line ? line.properties.label : null;
-      },
+      },*/
       product() {
-        var product = this.asset.properties['business:product'];
-        return product ? product.title : null;
-      },
+        var product = this.asset.properties['relations:products'];
+        return product.length > 0 ? product[0].title : null;
+      }/*,
       usage() {
         var usage = this.asset.properties['dr:authorized_usage'];
         if (usage && usage.length>0) {
@@ -124,7 +135,7 @@
         } else {
           return null;
         }
-      }
+      }*/
     },
 
     methods: {
@@ -136,7 +147,7 @@
       },
 
       addToCart() {
-        this.$nuxeo.operation('javascript.CART_AddToCart')
+        this.$nuxeo.operation('javascript.api_shopping_cart_add_content')
           .input(this.asset.uid)
           .params({
             'cartId': this.$store.state.cartId
@@ -153,7 +164,7 @@
       },
 
       removeFromCart() {
-        this.$nuxeo.operation('javascript.CART_RemoveFromCart')
+        this.$nuxeo.operation('javascript.api_shopping_cart_remove_content')
           .input(this.asset.uid)
           .params({
             'cartId': this.$store.state.cartId

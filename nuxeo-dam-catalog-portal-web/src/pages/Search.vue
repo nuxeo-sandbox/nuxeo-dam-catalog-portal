@@ -19,13 +19,13 @@
           directory-name="brands">
         </NuxeoDirectorySuggestion>
 
-        <NuxeoDirectorySuggestion
+        <!--NuxeoDirectorySuggestion
           ref="productLineFilter"
           class="search-suggestion"
           :placeholder="$t('message.search-filter-product-line')"
           v-on:change="productLineFilterChanged"
           directory-name="product_lines">
-        </NuxeoDirectorySuggestion>
+        </NuxeoDirectorySuggestion-->
 
         <NuxeoDocumentSuggestion
           class="search-suggestion"
@@ -38,18 +38,18 @@
           {{ $t('message.search-results-facets') }}
         </h2>
 
-        <div class="search-filters-group" v-if="hasFacet('business_brand_agg')">
+        <div class="search-filters-group" v-if="hasFacet('relations_denormalized_products_brand_agg')">
           <h3 class="search-filters-group-title">
             {{ $t('message.search-filter-brand') }}
           </h3>
           <div class="search-filters-group-content">
             <TermFacet
-              v-bind:data="facets.business_brand_agg"
+              v-bind:data="facets.relations_denormalized_products_brand_agg"
               v-on:selection-change="refresh">
             </TermFacet>
           </div>
         </div>
-        <div class="search-filters-group" v-if="hasFacet('business_product_line_agg')">
+        <!--div class="search-filters-group" v-if="hasFacet('business_product_line_agg')">
           <h3 class="search-filters-group-title">
             {{ $t('message.search-filter-product-line') }}
           </h3>
@@ -59,30 +59,30 @@
               v-on:selection-change="refresh">
             </TermFacet>
           </div>
-        </div>
-        <div class="search-filters-group" v-if="hasFacet('business_product_agg')">
+        </div-->
+        <div class="search-filters-group" v-if="hasFacet('relations_products_agg')">
           <h3 class="search-filters-group-title">
             {{ $t('message.search-filter-product') }}
           </h3>
           <div class="search-filters-group-content">
             <TermFacet
-              v-bind:data="facets.business_product_agg"
+              v-bind:data="facets.relations_products_agg"
               v-on:selection-change="refresh">
             </TermFacet>
           </div>
         </div>
-        <div class="search-filters-group" v-if="hasFacet('asset_type_agg')">
+        <div class="search-filters-group" v-if="hasFacet('system_mixinType_agg')">
           <h3 class="search-filters-group-title">
             {{ $t('message.search-filter-type') }}
           </h3>
           <div class="search-filters-group-content">
             <TermFacet
-              v-bind:data="facets.asset_type_agg"
+              v-bind:data="facets.system_mixinType_agg"
               v-on:selection-change="refresh">
             </TermFacet>
           </div>
         </div>
-        <div class="search-filters-group" v-if="hasFacet('digital_rights_authorized_usage_agg')">
+        <!--div class="search-filters-group" v-if="hasFacet('digital_rights_authorized_usage_agg')">
           <h3 class="search-filters-group-title">
             {{ $t('message.search-filter-rights') }}
           </h3>
@@ -92,7 +92,7 @@
               v-on:selection-change="refresh">
             </TermFacet>
           </div>
-        </div>
+        </div-->
       </aside>
       <div class="search-content">
         <div class="search-form">
@@ -311,21 +311,21 @@ export default {
       this.search();
     },
 
-    productLineFilterChanged(selection) {
+    /*productLineFilterChanged(selection) {
       var values = [];
       selection.forEach(function(item) {
         values.push(item.value);
       });
-      this.queryParams.business_product_line_1 = values;
+      this.queryParams.relations_denormalized_products_brand = values;
       this.search();
-    },
+    },*/
 
     productFilterChanged(selection) {
       var values = [];
       selection.forEach(function(item) {
         values.push(item.value);
       });
-      this.queryParams.business_product_1 = JSON.stringify(values);
+      this.queryParams.relations_products = JSON.stringify(values);
       this.search();
     },
 
@@ -334,7 +334,7 @@ export default {
       selection.forEach(function(item) {
         values.push(item.value);
       });
-      this.queryParams.business_brand_1 = JSON.stringify(values);
+      this.queryParams.relations_denormalized_products_brand = JSON.stringify(values);
       this.search();
     },
 
@@ -342,11 +342,11 @@ export default {
       this.loading = true;
       this.searchFilters.isVisibleOnMobile = false;
       this.$nuxeo.request('search/pp/asset-search-portal/execute', {
-          schemas : ['dublincore','business','picture','video'],
+          schemas : ['dublincore','relations','picture','video'],
           headers : {
             'enrichers.document': 'thumbnail,preview,permissions',
             'X-NXfetch.aggregate': 'key',
-            'fetch.document': 'business:product,business:product_line',
+            'fetch.document': 'relations:product',
             'X-NXtranslate.directoryEntry': 'label'
           },
           queryParams : this.queryParams
@@ -378,19 +378,19 @@ export default {
     },
 
     setInitialFiltersFromRoute() {
-      if (this.productline) {
+      /*if (this.productline) {
         this.queryParams.business_product_line_1 = this.productline;
         this.$refs.productLineFilter.value = {
           value: this.productline,
           label: this.productline
-        };
+        }
         this.productlineSuggestions.push(this.productLineFilter);
-      }
+      }*/
       if (this.productid) {
-        this.queryParams.business_product_agg = JSON.stringify([this.productid]);
+        this.queryParams.relations_products_agg = JSON.stringify([this.productid]);
       }
       if (this.brand) {
-        this.queryParams.business_brand_1 = JSON.stringify([this.brand]);
+        this.queryParams.relations_denormalized_products_brand = JSON.stringify([this.brand]);
         this.$refs.brandFilter.value = {
           value: this.brand,
           label: this.brand
@@ -399,7 +399,7 @@ export default {
     },
 
     addToCart(result) {
-      this.$nuxeo.operation('javascript.CART_AddToCart')
+      this.$nuxeo.operation('javascript.api_shopping_cart_add_content')
         .input(result.uid)
         .params({
           'cartId': this.$store.state.cartId
@@ -416,7 +416,7 @@ export default {
     },
 
     removeFromCart(result) {
-      this.$nuxeo.operation('javascript.CART_RemoveFromCart')
+      this.$nuxeo.operation('javascript.api_shopping_cart_remove_content')
         .input(result.uid)
         .params({
           'cartId': this.$store.state.cartId
@@ -475,10 +475,10 @@ export default {
       return isInCart;
     },
 
-    productLineFilterChange(productLine) {
+    /*productLineFilterChange(productLine) {
       this.queryParams.business_product_line = productLine  ? productLine.value : undefined;
       this.search();
-    },
+    },*/
 
     hasFacet(facetName) {
       return this.facets[facetName] &&  this.facets[facetName].buckets && this.facets[facetName].buckets.length>0;

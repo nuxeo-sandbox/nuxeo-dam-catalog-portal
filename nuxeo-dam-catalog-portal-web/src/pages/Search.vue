@@ -254,7 +254,9 @@ export default {
       productSuggestions:[],
       productFilter: [],
       facets: {},
-      queryParams: {},
+      queryParams: {
+        channel_type: 'portal'
+      },
       selects: [],
       loading: false,
       searchFilters: {
@@ -346,8 +348,9 @@ export default {
           headers : {
             'enrichers.document': 'thumbnail,preview,permissions',
             'X-NXfetch.aggregate': 'key',
-            'fetch.document': 'relations:product',
-            'X-NXtranslate.directoryEntry': 'label'
+            'fetch.document': 'properties,lock',
+            'translate-directoryEntry': 'label',
+            'fetch-directoryEntry': 'parent'
           },
           queryParams : this.queryParams
         })

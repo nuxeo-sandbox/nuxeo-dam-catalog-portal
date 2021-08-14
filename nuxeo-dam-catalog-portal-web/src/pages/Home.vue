@@ -80,6 +80,9 @@ export default {
           'enrichers.document': 'thumbnail',
           'fetch.document': 'channel:brand',
           'X-NXtranslate.directoryEntry': 'label'
+        },
+        queryParams : {
+           channel_type: 'portal'
         }
       })
       .get()

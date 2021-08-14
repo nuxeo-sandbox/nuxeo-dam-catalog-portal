@@ -49,6 +49,7 @@
             </div>
 
           </b-list-group-item>
+          <div style="height:128px"></div>
         </b-list-group>
       </div>
 

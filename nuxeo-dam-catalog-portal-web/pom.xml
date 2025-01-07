@@ -40,7 +40,7 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
-            <id>grunt-build</id>
+            <id>npm-build</id>
             <phase>process-resources</phase>
             <configuration>
               <target>

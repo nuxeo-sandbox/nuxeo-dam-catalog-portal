@@ -29,6 +29,11 @@ jobs:
         java-version: '23'
         cache: maven
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16'
+
     - name: maven-settings-action
       uses: s4u/maven-settings-action@v3.1.0
       with:

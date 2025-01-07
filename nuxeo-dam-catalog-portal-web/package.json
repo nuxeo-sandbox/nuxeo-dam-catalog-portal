@@ -40,7 +40,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "material-design-iconic-font": "^2.2.0",
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.13.1",
+    "sass": "^1.49.9",
     "sass-loader": "^8.0.2",
     "vue-router": "^3.1.5",
     "vue-template-compiler": "^2.6.11"
